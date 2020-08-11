@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build style/tailwind.css -o style/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fawadrafique/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fawadrafique/weather-app/issues"
+  },
+  "homepage": "https://github.com/fawadrafique/weather-app#readme",
+  "dependencies": {
+    "tailwindcss": "^1.6.2"
+  }
+}
