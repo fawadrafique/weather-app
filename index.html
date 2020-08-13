@@ -32,20 +32,33 @@
     <div class="flex flex-wrap w-full lg:w-auto">
       <div class="w-full lg:w-1/2 flex rounded-lg bg-auto">
         <div class="rounded-lg py-6 pl-8 pr-6 w-full bg-blue-400 opacity-90 text-white">
-          <div class="mb-20">
-            <h2 id="currentDay" class="font-bold text-3xl leading-none pb-1">Tuesday</h2>
-            <h3 id="currentDate" class="leading-none pb-2">15 Jan 19</h3>
-            <span class="fas fa-map-marker-alt fa-xs"></span>
-            <span id="currentCity" class="opacity-75">
-              Gent, BE
-            </span>
+          <div class="mb-20 text-center">
+            <h2 id="currentCity" class="font-bold text-3xl inline-flex leading-none pb-1">Gent, BE</h2>
+            <h3 id="currentDay" class="leading-none pb-2 opacity-75">Tuesday, 15 January 2020</h3>
+          </div>
+          <div class="grid grid-cols-6">
+            <div class="col-start-2 col-span-3">
+              <div class="flex justify-center">
+                <span id="icon"></span>
+                <span id="currentSummary" class="text-2xl font-bold">Sunny</span>
+              </div>
+              <div class="flex justify-center">
+                <span id="currentTemperature" class="leading-none text-6xl font-weight-bolder">29</span>
+                <span class="text-3xl font-weight-bolder align-top">ºC</span>
+              </div>
+            </div>
+            <div class="col-start-5 col-span-1">
+              <div class="grid grid-rows-6">
+                <div class="row-start-5 row-span-1">
+                  <span id="currentTemperature" class="leading-none block font-weight-bolder">29ºC</span>
+                </div>
+                <div class="row-start-6 row-span-1">
+                  <span id="currentTemperature" class="leading-none block font-weight-bolder">29ºC</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          </div>
-          <div class="">
-            <span id="currentTemperature" class="leading-none text-6xl font-weight-bolder">29</span>
-            <span class="text-3xl font-weight-bolder align-top">ºC</span>
-            <span id="currentSummary" class="text-2xl block font-bold">Sunny</span>
-          </div>
         </div>
       </div>
 

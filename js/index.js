@@ -24,6 +24,8 @@ searchBox.addListener('places_changed', () => {
 })
 
 
+
+
 submit.addEventListener('click', (e) => {
     e.preventDefault();
     city = getPlace.value;
