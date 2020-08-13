@@ -41,30 +41,49 @@ function init(lat, lon, city, country) {
         })
         .then((data) => {
             display(data);
-            let iconID = data.current.weather[0].icon;
-            let iconURL = `http://openweathermap.org/img/w/${iconID}.png`
             updateTemp.textContent = Math.round(data.current.temp);
             updatePlace.textContent = `${city}, ${country}`;
-            minmaxT.innerHTML = `L <strong class="text-lg">${Math.round(data.daily[0].temp.min)}º</strong> / H <strong class="text-lg">${Math.round(data.daily[0].temp.max)}º</strong>`
+            minmaxT.innerHTML = `L <strong class="text-lg">${Math.round(data.daily[0].temp.min)}º</strong> - H <strong class="text-lg">${Math.round(data.daily[0].temp.max)}º</strong>`
             updateDay.textContent = getDay(data.current.dt);
             summary.textContent = data.current.weather[0].main;
             icon.innerHTML = getIcon(data);
+            updateForecast(data);
         })
 }
 
+function updateForecast(data) {
+    let style, d, day, iconID, weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    for (let i = 1; i < 7; i++) {
+        d = new Date(data.daily[i].dt * 1000);
+        day = weekdays[d.getDay()];
+        iconID = data.daily[i].weather[0].id;
+        minT = Math.round(data.daily[i].temp.min);
+        maxT = Math.round(data.daily[i].temp.max);
+        style = `<span class="font-normal block">${day}</span>
+    <span class="flex justify-center text-3xl">
+      <i class="wi wi-owm-${iconID}"></i>
+    </span>
+    <span class="block">
+      <span class="text-xs">L </span><span class="text-sm">${minT}º - </span><span class="text-xs">H</span>
+      <span class="text-sm">${maxT}º</span>
+    </span>`
+        document.querySelector(`#day${i}`).innerHTML = style;
+    }
+
+
+}
+
 function getIcon(data) {
-    let weatherIconID;
+    let iconID;
     const date = new Date();
     const sunrise = new Date(data.current.sunrise * 1000);
     const sunset = new Date(data.current.sunset * 1000);
-
-    /* Get suitable icon for weather */
     if (date.getHours() >= sunrise.getHours() && date.getHours() < sunset.getHours()) {
-        weatherIconID = `wi wi-owm-day-${data.current.weather[0].id}`;
+        iconID = `wi wi-owm-day-${data.current.weather[0].id}`;
     } else {
-        weatherIconID = `wi wi-owm-night-${data.current.weather[0].id}`;
+        iconID = `wi wi-owm-night-${data.current.weather[0].id}`;
     }
-    return `<i class="${weatherIconID}"></i>`
+    return `<i class="${iconID}"></i>`
 }
 
 function getDay(ms) {

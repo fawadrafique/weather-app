@@ -16,26 +16,26 @@
 
 
 <body>
-  <div class="w-full mt-16 lg:mt-64 lg:px-40 justify-center container mx-auto">
+  <div class="w-full mt-16 lg:mt-64 lg:px-38 justify-center container mx-auto">
 
     <div class="flex flex-wrap w-full lg:w-auto">
       <div class="w-full lg:w-1/2 flex bg-auto">
-        <div class="py-6 pl-8 pr-6 w-full bg-blue-400 opacity-90 text-white">
+        <div class="py-6 pl-6 pr-6 w-full bg-blue-400 opacity-90 text-white">
           <div class="container mx-auto">
             <form class="mt-2 mb-4 flex w-full">
-              <input class="w-full p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-                type="text" placeholder="Search for a city..." placesearch />
-              <button id="openclose" class="bg-yellow-400  text-gray-800 font-bold p-2 px-4 border-yellow-500 mr-2"><i
+              <input class="w-full p-2 border-t border-b border-l text-gray-800 border-gray-200 bg-white" type="text"
+                placeholder="Search for a city..." placesearch />
+              <button id="openclose" class="bg-yellow-400  text-gray-800 font-bold p-2 px-4 border-yellow-500"><i
                   class="fas fa-plus"></i>
               </button>
             </form>
           </div>
           <div class="mb-8 text-center">
-            <h2 id="city" class="font-bold text-3xl inline-flex leading-none pb-1">Brussels, BE</h2>
+            <h2 id="city" class="text-2xl inline-flex leading-none pb-1">Brussels, BE</h2>
             <h3 id="day" class="leading-none pb-2 opacity-75">Thursday, 13 August 2020</h3>
           </div>
           <div class="flex justify-center mb-3">
-            <span id="summary" class="text-2xl font-bold">Sunny</span>
+            <span id="summary" class="text-2xl">Sunny</span>
           </div>
           <div class="grid grid-cols-2 mb-3">
             <div id="icon" class="flex justify-end text-6xl font-bold p-1 pr-3 border-r">
@@ -47,46 +47,89 @@
             </div>
           </div>
           <div class="flex justify-center mb-12">
-            <span id="minmaxT" class="leading-none font-weight-bolder ">L <strong class="text-lg">29º</strong> / H
+            <span id="minmaxT" class="leading-none font-weight-bolder ">L <strong class="text-lg">29º</strong> - H
               <strong class="text-lg">19</strong>º</span>
           </div>
-          <div class="flex flex-row mr-2">
-            <div class="flex flex-col w-1/4 bg-gray-900 m-1">
-              <div class="text-center pt-2 mb-2"></div>
-              <div class="text-center pb-3">
-                <b class="font-normal">Tue</b><br />
-                <strong class="text-xl">29ºC</strong>
+          <div class="grid grid-flow-col grid-cols-3 grid-rows-2 md:grid-cols-6 md:grid-rows-1 gap-1">
+
+            <div class="bg-gray-900">
+              <div id="day1" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
               </div>
             </div>
 
-            <div class="flex flex-col w-1/4 bg-gray-900 m-1">
-              <div class="text-center pt-2 mb-2"></div>
-              <div class="text-center pb-3">
-                <b class="font-normal">Wed</b><br />
-                <strong class="text-xl">21ºC</strong>
+            <div class="bg-gray-900">
+              <div id="day2" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
               </div>
             </div>
-            <div class="flex flex-col w-1/4 bg-gray-900 m-1">
-              <div class="text-center pt-2 mb-2"></div>
-              <div class="text-center pb-3">
-                <b class="font-normal">Thu</b><br />
-                <strong class="text-xl">18ºC</strong>
+
+            <div class="bg-gray-900">
+              <div id="day3" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
               </div>
             </div>
-            <div class="flex flex-col w-1/4 bg-gray-900 m-1">
-              <div class="text-center pt-2 mb-2"></div>
-              <div class="text-center pb-3">
-                <b class="font-normal">Fri</b><br />
-                <strong class="text-xl">25ºC</strong>
+
+            <div class="bg-gray-900">
+              <div id="day4" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
               </div>
             </div>
-            <div class="flex flex-col w-1/4 bg-gray-900 m-1">
-              <div class="text-center pt-2 mb-2"></div>
-              <div class="text-center pb-3">
-                <b class="font-normal">Fri</b><br />
-                <strong class="text-xl">25ºC</strong>
+
+            <div class="bg-gray-900">
+              <div id="day5" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
               </div>
             </div>
+
+            <div class="bg-gray-900">
+              <div id="day6" class="text-center mt-1">
+                <span class="font-normal block">Wed</span>
+                <span class="flex justify-center text-3xl">
+                  <i class="wi wi-day-sunny"></i>
+                </span>
+                <span class="block">
+                  <span class="text-xs">L </span><span class="text-sm">29º - </span><span class="text-xs">H</span>
+                  <span class="text-sm">19º</span>
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
