@@ -1,15 +1,16 @@
 let lat, lon, apiCall, country;
-const submit = document.querySelector('#submit')
-const getPlace = document.querySelector('#place')
-const updateTemp = document.querySelector('#currentTemperature')
-const updateSummary = document.querySelector('#currentSummary')
-const updatePlace = document.querySelector('#currentCity')
-const updateDay = document.querySelector('#currentDay')
+const toggle = document.querySelector('#openclose')
+const updateTemp = document.querySelector('#temperature')
+const summary = document.querySelector('#summary')
+const updatePlace = document.querySelector('#city')
+const updateDay = document.querySelector('#day')
+const minmaxT = document.querySelector('#minmaxT')
+const searchAtrribute = document.querySelector('[placesearch]')
 
-const searchAtrribute = document.querySelector('[citysearch]')
-const searchBox = new google.maps.places.SearchBox(searchAtrribute)
-searchBox.addListener('places_changed', () => {
-    const place = searchBox.getPlaces()[0]
+
+const searchPlaces = new google.maps.places.SearchBox(searchAtrribute)
+searchPlaces.addListener('places_changed', () => {
+    const place = searchPlaces.getPlaces()[0]
     let city = place.vicinity
     place.address_components.forEach((component) => {
         if (component.types[0] == "country") {
@@ -19,19 +20,10 @@ searchBox.addListener('places_changed', () => {
     if (place == null) return
     let latitude = place.geometry.location.lat()
     let longitude = place.geometry.location.lng()
+    display(place)
     init(latitude, longitude, city, country);
-    display(latitude)
+    getDay();
 })
-
-
-
-
-submit.addEventListener('click', (e) => {
-    e.preventDefault();
-    city = getPlace.value;
-    display(city);
-    init(city);
-});
 
 function init(lat, lon, city, country) {
     // let city = name;
@@ -47,11 +39,27 @@ function init(lat, lon, city, country) {
             display(data);
             updateTemp.textContent = Math.round(data.current.temp);
             updatePlace.textContent = `${city}, ${country}`;
-
-
-
         })
 }
+
+function getDay() {
+    let today = new Date();
+    let options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    };
+
+    updateDay.textContent = today.toLocaleString(
+        "en-GB",
+        options
+    );
+}
+
+
 
 function getLocation() {
     if (navigator.geolocation) {

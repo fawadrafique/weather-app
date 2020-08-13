@@ -22,30 +22,29 @@
         <div class="py-6 pl-8 pr-6 w-full bg-blue-400 opacity-90 text-white">
           <div class="container mx-auto">
             <form class="mt-2 mb-4 flex w-full">
-              <input id="place"
-                class="w-full p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" type="text"
-                placeholder="Search for a city..." citysearch />
-              <button id="submit" class="bg-yellow-400  text-gray-800 font-bold p-2 px-4 border-yellow-500"><i
+              <input class="w-full p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+                type="text" placeholder="Search for a city..." placesearch />
+              <button id="openclose" class="bg-yellow-400  text-gray-800 font-bold p-2 px-4 border-yellow-500 mr-2"><i
                   class="fas fa-plus"></i>
               </button>
             </form>
           </div>
           <div class="mb-10 text-center">
-            <h2 id="currentCity" class="font-bold text-3xl inline-flex leading-none pb-1">Gent, BE</h2>
-            <h3 id="currentDay" class="leading-none pb-2 opacity-75">Tuesday, 15 January 2020</h3>
+            <h2 id="city" class="font-bold text-3xl inline-flex leading-none pb-1">Gent, BE</h2>
+            <h3 id="day" class="leading-none pb-2 opacity-75">Tuesday, 15 January 2020</h3>
           </div>
           <div class="flex justify-center">
             <span id="icon"></span>
-            <span id="currentSummary" class="text-2xl font-bold">Sunny</span>
+            <span id="summary" class="text-2xl font-bold">Sunny</span>
           </div>
           <div class="flex justify-center mb-2">
-            <span id="currentTemperature" class="leading-none text-6xl font-weight-bolder">29</span>
+            <span id="temperature" class="leading-none text-6xl font-weight-bolder">29</span>
             <span class="text-3xl font-weight-bolder align-top">ºC</span>
           </div>
           <div class="flex justify-center mb-12">
             <span id="minmaxT" class="leading-none font-weight-bolder">29ºC / 29ºC</span>
           </div>
-          <div class="flex flex-row">
+          <div class="flex flex-row mr-2">
             <div class="flex flex-col w-1/4 bg-gray-900 m-1">
               <div class="text-center pt-2 mb-2"></div>
               <div class="text-center pb-3">
