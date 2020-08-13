@@ -84,41 +84,6 @@ function getDay(ms) {
     );
 }
 
-
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosition, showError)
-    } else {
-        alert('Geolocation not supported by the browser')
-    }
-}
-
-function getPosition(position) {
-    lat = position.coords.latitude;
-    display(84, lat);
-    lon = position.coords.longitude;
-    display(86, lon);
-
-}
-
-function showError(error) {
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            alert('User denied the request for Geolocation.');
-            break;
-        case error.POSITION_UNAVAILABLE:
-            alert('Location information is unavailable.');
-            break;
-        case error.TIMEOUT:
-            alert('The request to get user location timed out.');
-            break;
-        case error.UNKNOWN_ERROR:
-            alert('An unknown error occurred.');
-            break;
-    }
-}
-
 function display(message) {
     console.log(message);
 }
