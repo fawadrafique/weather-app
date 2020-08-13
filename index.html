@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style/styles.css" />
+  <link rel="stylesheet" href="./style/weather-icons.min.css">
   <script defer type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbIMyRDgay42Q3-F91m6fk36g9OJjgrk4&libraries=places"></script>
   <script defer src="js/index.js"></script>
@@ -29,20 +30,25 @@
               </button>
             </form>
           </div>
-          <div class="mb-10 text-center">
-            <h2 id="city" class="font-bold text-3xl inline-flex leading-none pb-1">Gent, BE</h2>
-            <h3 id="day" class="leading-none pb-2 opacity-75">Tuesday, 15 January 2020</h3>
+          <div class="mb-8 text-center">
+            <h2 id="city" class="font-bold text-3xl inline-flex leading-none pb-1">Brussels, BE</h2>
+            <h3 id="day" class="leading-none pb-2 opacity-75">Thursday, 13 August 2020</h3>
           </div>
-          <div class="flex justify-center">
-            <span id="icon"></span>
+          <div class="flex justify-center mb-3">
             <span id="summary" class="text-2xl font-bold">Sunny</span>
           </div>
-          <div class="flex justify-center mb-2">
-            <span id="temperature" class="leading-none text-6xl font-weight-bolder">29</span>
-            <span class="text-3xl font-weight-bolder align-top">ºC</span>
+          <div class="grid grid-cols-2 mb-3">
+            <div id="icon" class="flex justify-end text-6xl font-bold p-1 pr-3 border-r">
+              <i class="wi wi-day-sunny"></i>
+            </div>
+            <div class="flex justify-start p-1 pl-2">
+              <span id="temperature" class="leading-none text-6xl font-weight-bolder">29</span>
+              <span class="text-3xl font-weight-bolder align-top">ºC</span>
+            </div>
           </div>
           <div class="flex justify-center mb-12">
-            <span id="minmaxT" class="leading-none font-weight-bolder">29ºC / 29ºC</span>
+            <span id="minmaxT" class="leading-none font-weight-bolder ">L <strong class="text-lg">29º</strong> / H
+              <strong class="text-lg">19</strong>º</span>
           </div>
           <div class="flex flex-row mr-2">
             <div class="flex flex-col w-1/4 bg-gray-900 m-1">
