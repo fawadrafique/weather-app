@@ -136,21 +136,36 @@
 
       <div class="w-full lg:w-1/2 flex ml-0">
         <div class="lg:my-4 bg-gray-800 text-white p-8 w-full">
-          <div class="flex justify-between mb-4 w-full">
-            <div class="w-auto font-bold uppercase text-90">
-              Precipitation
+          <div class="grid grid-cols-2 grid-rows-2 gap-5 w-1/2 mx-auto">
+            <div class="bg-gray-600 text-center p-5">
+              <i class="fas fa-thermometer-three-quarters fa-2x"></i>
+              <span class="block text-90">
+                Feels like
+              </span>
+              <span id="windSpeed">29º</span>
             </div>
-            <div id="rainPercent" class="w-auto text-right">10 %</div>
+            <div class="bg-gray-600 text-center p-5">
+              <i class="fad fa-raindrops fa-2x"></i>
+              <span class="block text-90">
+                Precipitation
+              </span>
+              <span id="rainPercent" class="w-auto">10 %</span>
+            </div>
+            <div class="bg-gray-600 text-center p-5">
+              <i class="fas fa-humidity fa-2x"></i>
+              <span class="block text-90">
+                Humidity
+              </span>
+              <span id="humidityPercent">29 %</span>
+            </div>
+            <div class="bg-gray-600 text-center p-5">
+              <i class="fas fa-wind fa-2x"></i>
+              <span class="block text-90">
+                Wind
+              </span>
+              <span id="windSpeed">12 Mph</span>
+            </div>
           </div>
-          <div class="flex justify-between mb-4 w-full">
-            <div class="w-auto font-bold uppercase text-90">Humidity</div>
-            <div id="humidityPercent" class="w-auto text-right">29 %</div>
-          </div>
-          <div class="flex justify-between mb-8 w-full">
-            <div class="w-auto font-bold uppercase text-90">Wind</div>
-            <div id="windSpeed" class="w-auto text-right">12 Mph</div>
-          </div>
-
         </div>
       </div>
     </div>
