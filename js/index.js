@@ -7,6 +7,10 @@ const updatePlace = document.querySelector('#city')
 const updateDay = document.querySelector('#day')
 const minmaxT = document.querySelector('#minmaxT')
 const searchAtrribute = document.querySelector('[placesearch]')
+const windSpeed = document.querySelector('#windSpeed')
+const humidity = document.querySelector('#humidityPercent')
+const rain = document.querySelector('#rainPercent')
+const feelT = document.querySelector('#feelslike')
 
 window.onload = () => {
     init(50.85, 4.35, 'Brussels', 'BE');
@@ -46,6 +50,10 @@ function init(lat, lon, city, country) {
             minmaxT.innerHTML = `L <strong class="text-lg">${Math.round(data.daily[0].temp.min)}º</strong> - H <strong class="text-lg">${Math.round(data.daily[0].temp.max)}º</strong>`
             updateDay.textContent = getDay(data.current.dt);
             summary.textContent = data.current.weather[0].main;
+            windSpeed.textContent = `${Math.round(data.current.wind_speed*3.5997)} km/h`
+            humidity.textContent = `${data.current.humidity} %`
+            rain.textContent = `${data.daily[0].pop * 100} %`
+            feelT.textContent = `${Math.round(data.current.feels_like)}º`
             icon.innerHTML = getIcon(data);
             updateForecast(data);
         })
