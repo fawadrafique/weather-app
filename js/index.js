@@ -1,4 +1,6 @@
-//import Chart from 'Chart.js';
+// import Chart from 'chart.js';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 let lat, lon, apiCall, country;
 const toggle = document.querySelector('#openclose')
 const updateTemp = document.querySelector('#temperature')
@@ -91,6 +93,7 @@ function updateChart(data) {
                 pointBackgroundColor: "#718096",
                 pointRadius: 4,
                 pointBorderWidth: 2,
+                showTooltips: false
             }],
 
         },
@@ -98,10 +101,10 @@ function updateChart(data) {
             scales: {
                 xAxes: [{
                     gridLines: {
-                        //display: false
-                        borderDash: [8, 4],
-                        color: "#fff",
-                        z: 10
+                        display: false
+                        // borderDash: [8, 4],
+                        // color: "#fff",
+                        // z: 10
                     },
                     ticks: {
                         fontColor: '#fff'
@@ -113,17 +116,33 @@ function updateChart(data) {
                     },
                     ticks: {
                         display: false,
-                        min: 0,
+                        suggestedMin: 5
                     }
                 }]
             },
             legend: {
                 display: false
             },
+            tooltips: {
+                enabled: false
+            },
+            hover: {
+                mode: null
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+
+                    color: '#fff',
+                    align: 'top',
+                    formatter: function (value) {
+                        return value + 'º';
+                    }
+                }
+
+            }
         }
     })
-
-
 }
 
 function updateBackground(city) {
