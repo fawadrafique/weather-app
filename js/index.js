@@ -12,7 +12,7 @@ const minmaxT = document.querySelector('#minmaxT')
 const searchAtrribute = document.querySelector('[placesearch]')
 const windSpeed = document.querySelector('#windSpeed')
 const humidity = document.querySelector('#humidityPercent')
-const rain = document.querySelector('#rainPercent')
+const uvindex = document.querySelector('#uvindex')
 const feelT = document.querySelector('#feelslike')
 const footer = document.querySelector('#footer')
 const chart = document.querySelector('#chart').getContext('2d')
@@ -58,7 +58,7 @@ function init(lat, lon, city, country) {
             summary.textContent = data.current.weather[0].main;
             windSpeed.textContent = `${Math.round(data.current.wind_speed*3.5997)} km/h`
             humidity.textContent = `${data.current.humidity} %`
-            rain.textContent = `${data.current.uvi}`
+            uvindex.textContent = `${data.current.uvi}`
             feelT.textContent = `${Math.round(data.current.feels_like)}º`
             icon.innerHTML = getIcon(data);
             updateForecast(data);
