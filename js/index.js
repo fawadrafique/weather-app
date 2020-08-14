@@ -56,7 +56,31 @@ function init(lat, lon, city, country) {
             feelT.textContent = `${Math.round(data.current.feels_like)}º`
             icon.innerHTML = getIcon(data);
             updateForecast(data);
+            updateBackground(city);
         })
+}
+
+function updateBackground(city) {
+    //const apiKey = `jRPGWBPEGuRHvLEve0t7QHqzx0a7NsWSv_FY-atuTWs`
+    const apiKey = `fcd34269b5505a2c7ddc58b68e7ddb8b`
+    const apiCall = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${city}&format=json&nojsoncallback=1`
+    //const apiCall = `https://api.unsplash.com/search/photos?page=1&query=${city} landscape&order_by=popular&orientation=landscape&client_id=${apiKey}`
+    display(apiCall)
+
+    fetch(apiCall)
+        .then((response) => {
+            display(response)
+            return response.json()
+        })
+        .then((data) => {
+            let path = data.photos.photo[0]
+            let image = `http://farm${path.farm}.staticflickr.com/${path.server}/${path.id}_${path.secret}.jpg`
+            //document.body.style.backgroundSize = "cover";
+            //document.body.style.backgroundImage = `url('${data.results[0].urls.regular}')`;
+
+            display(image)
+        })
+
 }
 
 function updateForecast(data) {
