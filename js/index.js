@@ -61,24 +61,18 @@ function init(lat, lon, city, country) {
 }
 
 function updateBackground(city) {
-    //const apiKey = `jRPGWBPEGuRHvLEve0t7QHqzx0a7NsWSv_FY-atuTWs`
-    const apiKey = `fcd34269b5505a2c7ddc58b68e7ddb8b`
-    const apiCall = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${city}&format=json&nojsoncallback=1`
-    //const apiCall = `https://api.unsplash.com/search/photos?page=1&query=${city} landscape&order_by=popular&orientation=landscape&client_id=${apiKey}`
-    display(apiCall)
-
+    const apiKey = `jRPGWBPEGuRHvLEve0t7QHqzx0a7NsWSv_FY-atuTWs`
+    const apiCall = `https://api.unsplash.com/search/photos?page=1&query=${city} city&order_by=popular&orientation=landscape&client_id=${apiKey}`
     fetch(apiCall)
         .then((response) => {
-            display(response)
             return response.json()
         })
         .then((data) => {
-            let path = data.photos.photo[0]
-            let image = `http://farm${path.farm}.staticflickr.com/${path.server}/${path.id}_${path.secret}.jpg`
-            //document.body.style.backgroundSize = "cover";
-            //document.body.style.backgroundImage = `url('${data.results[0].urls.regular}')`;
+            let rand = Math.floor(Math.random() * 10);
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundImage = `url('${data.results[rand].urls.regular}')`;
 
-            display(image)
+            display(data)
         })
 
 }
