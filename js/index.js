@@ -1,3 +1,4 @@
+//import Chart from 'Chart.js';
 let lat, lon, apiCall, country;
 const toggle = document.querySelector('#openclose')
 const updateTemp = document.querySelector('#temperature')
@@ -66,23 +67,59 @@ function init(lat, lon, city, country) {
 
 function updateChart(data) {
     let d, temp = [],
+        t,
         time = [];
     for (let i = 0; i < 25; i++) {
         time.push(getHour(data.hourly[i].dt));
         temp.push(Math.round(data.hourly[i].temp));
         i += 3;
     }
+    t = temp.map(String)
     display(time)
-    display(temp)
-
-
-
-
+    display(t)
     let myChart = new Chart(chart, {
         type: 'line',
         data: {
             labels: time,
-            datasets: temp
+            datasets: [{
+                data: t,
+                backgroundColor: '#718096',
+                borderColor: "#fff",
+                borderWidth: 2,
+                lineTension: 0,
+                pointBorderColor: "#fff",
+                pointBackgroundColor: "#718096",
+                pointRadius: 4,
+                pointBorderWidth: 2,
+            }],
+
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        //display: false
+                        borderDash: [8, 4],
+                        color: "#fff",
+                        z: 10
+                    },
+                    ticks: {
+                        fontColor: '#fff'
+                    },
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        display: false,
+                        min: 0,
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            },
         }
     })
 
@@ -113,8 +150,8 @@ function updateForecast(data) {
         d = new Date(data.daily[i].dt * 1000);
         day = weekdays[d.getDay()];
         iconID = data.daily[i].weather[0].id;
-        minT = Math.round(data.daily[i].temp.min);
-        maxT = Math.round(data.daily[i].temp.max);
+        let minT = Math.round(data.daily[i].temp.min);
+        let maxT = Math.round(data.daily[i].temp.max);
         style = `<span class="font-normal block">${day}</span>
     <span class="flex justify-center text-3xl">
       <i class="wi wi-owm-${iconID}"></i>

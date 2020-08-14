@@ -8,7 +8,7 @@
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style/styles.css" />
   <link rel="stylesheet" href="./style/weather-icons.min.css">
-  <script defer src="https://cdnjs.com/libraries/Chart.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script defer type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbIMyRDgay42Q3-F91m6fk36g9OJjgrk4&libraries=places"></script>
   <script defer src="js/index.js"></script>
@@ -18,7 +18,7 @@
 
 <body class="flex flex-col h-screen">
   <div class="flex-grow">
-    <div class="w-full mt-16 lg:mt-64 lg:px-38 justify-center container mx-auto opacity-90">
+    <div class="w-full mt-16 lg:mt-64 lg:px-38 justify-center container mx-auto">
 
       <div class="flex flex-wrap w-full lg:w-auto">
         <div class="w-full lg:w-1/2 flex bg-auto">
@@ -143,8 +143,7 @@
 
         <div class="w-full lg:w-1/2 flex ml-0">
           <div class="lg:my-4 bg-gray-800 text-white p-8 w-full">
-            <canvas id="chart"></canvas>
-            <div class="h-40"></div>
+            <canvas id="chart" width="200" height="100"></canvas>
             <div class="grid grid-cols-4 gap-4 mx-auto">
               <div class="bg-gray-600 text-center p-5">
                 <i class="fas fa-thermometer-three-quarters fa-2x"></i>
