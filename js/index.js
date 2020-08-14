@@ -11,6 +11,9 @@ const windSpeed = document.querySelector('#windSpeed')
 const humidity = document.querySelector('#humidityPercent')
 const rain = document.querySelector('#rainPercent')
 const feelT = document.querySelector('#feelslike')
+const footer = document.querySelector('#footer')
+const chart = document.querySelector('#chart').getContext('2d')
+
 
 window.onload = () => {
     init(50.85, 4.35, 'Brussels', 'BE');
@@ -37,7 +40,7 @@ searchPlaces.addListener('places_changed', () => {
 function init(lat, lon, city, country) {
     // let city = name;
     const apiKey = `94bc76131465087810a5fcee2f66defe`;
-    apiCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${apiKey}`
+    apiCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${apiKey}`
     //display(apiCall)
     fetch(apiCall)
         .then((response) => {
@@ -52,12 +55,38 @@ function init(lat, lon, city, country) {
             summary.textContent = data.current.weather[0].main;
             windSpeed.textContent = `${Math.round(data.current.wind_speed*3.5997)} km/h`
             humidity.textContent = `${data.current.humidity} %`
-            rain.textContent = `${data.daily[0].pop * 100} %`
+            rain.textContent = `${data.current.uvi}`
             feelT.textContent = `${Math.round(data.current.feels_like)}º`
             icon.innerHTML = getIcon(data);
             updateForecast(data);
             updateBackground(city);
+            updateChart(data);
         })
+}
+
+function updateChart(data) {
+    let d, temp = [],
+        time = [];
+    for (let i = 0; i < 25; i++) {
+        time.push(getHour(data.hourly[i].dt));
+        temp.push(Math.round(data.hourly[i].temp));
+        i += 3;
+    }
+    display(time)
+    display(temp)
+
+
+
+
+    let myChart = new Chart(chart, {
+        type: 'line',
+        data: {
+            labels: time,
+            datasets: temp
+        }
+    })
+
+
 }
 
 function updateBackground(city) {
@@ -68,11 +97,12 @@ function updateBackground(city) {
             return response.json()
         })
         .then((data) => {
+            display(data)
+
             let rand = Math.floor(Math.random() * 10);
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundImage = `url('${data.results[rand].urls.regular}')`;
-
-            display(data)
+            footer.innerHTML = `Photo by: <a class="underline" href='${data.results[rand].links.html}'>${data.results[rand].user.name}</a> on <a class="underline" href='https://unsplash.com/'>Unsplash</a>`
         })
 
 }
@@ -110,6 +140,13 @@ function getIcon(data) {
         iconID = `wi wi-owm-night-${data.current.weather[0].id}`;
     }
     return `<i class="${iconID}"></i>`
+}
+
+function getHour(ms) {
+    let d = new Date(ms * 1000);
+    let t = d.getHours()
+    if (t < 10) return `0${t}:00`
+    else return `${t}:00`
 }
 
 function getDay(ms) {
