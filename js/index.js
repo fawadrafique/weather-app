@@ -102,9 +102,6 @@ function updateChart(data) {
                 xAxes: [{
                     gridLines: {
                         display: false
-                        // borderDash: [8, 4],
-                        // color: "#fff",
-                        // z: 10
                     },
                     ticks: {
                         fontColor: '#fff'
@@ -115,8 +112,9 @@ function updateChart(data) {
                         display: false,
                     },
                     ticks: {
-                        display: false,
-                        suggestedMin: 5
+                        // display: false,
+                        suggestedMin: 16,
+                        stepSize: 2
                     }
                 }]
             },
