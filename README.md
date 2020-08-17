@@ -1,12 +1,10 @@
-# 💬 Micro chatbot challenge
+# The Weather Application
 
 - Repository name: `weather-app`
 - Type of Challenge: `learning`
 - Written in : `HTML, CSS and JS`
 - Built with: `Tailwindand and VS Code`
-- Preview: ``
-
-## The Weather Application
+- Preview: `https://fawadrafique.github.io/weather-app`
 
 A weather app with the following nice features:
 
