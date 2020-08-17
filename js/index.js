@@ -76,9 +76,14 @@ function updateChart(data) {
         temp.push(Math.round(data.hourly[i].temp));
         i += 3;
     }
+    let tMin = Math.min(...temp) - 5
+    let tMax = Math.max(...temp) + 5
     t = temp.map(String)
     display(time)
     display(t)
+    display(tMin)
+    display(tMax)
+
     let myChart = new Chart(chart, {
         type: 'line',
         data: {
@@ -112,9 +117,9 @@ function updateChart(data) {
                         display: false,
                     },
                     ticks: {
-                        // display: false,
-                        suggestedMin: 16,
-                        stepSize: 2
+                        display: false,
+                        min: tMin,
+                        max: tMax
                     }
                 }]
             },
