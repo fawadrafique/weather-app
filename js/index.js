@@ -2,7 +2,9 @@
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 let lat, lon, apiCall, country;
-const toggle = document.querySelector('#openclose')
+const searchBox = document.querySelector('#searchBox')
+const searchClose = document.querySelector('#searchClose')
+const searchOpen = document.querySelector('#searchOpen')
 const updateTemp = document.querySelector('#temperature')
 const summary = document.querySelector('#summary')
 const icon = document.querySelector('#icon')
@@ -21,6 +23,15 @@ const chart = document.querySelector('#chart').getContext('2d')
 window.onload = () => {
     init(50.85, 4.35, 'Brussels', 'BE');
 }
+
+searchOpen.addEventListener('click', () => {
+    searchOpen.classList.toggle('hidden')
+    searchBox.classList.toggle('hidden')
+})
+searchClose.addEventListener('click', () => {
+    searchOpen.classList.toggle('hidden')
+    searchBox.classList.toggle('hidden')
+})
 
 
 const searchPlaces = new google.maps.places.SearchBox(searchAtrribute)
