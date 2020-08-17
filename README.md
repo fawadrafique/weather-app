@@ -4,7 +4,7 @@
 - Type of Challenge: `learning`
 - Written in : `HTML, CSS and JS`
 - Built with: `Tailwindand and VS Code`
-- Preview: `https://fawadrafique.github.io/weather-app`
+- Preview: [GitHub Page](https://fawadrafique.github.io/weather-app)
 
 A weather app with the following nice features:
 
